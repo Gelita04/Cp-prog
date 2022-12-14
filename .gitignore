@@ -1,6 +1,7 @@
 treeTraining/obj
 treeTraining/bin
-
-.vscode
+Cp prog/.vscode
+Cp prog/bin
+cp prog/obj
 
 TODO
