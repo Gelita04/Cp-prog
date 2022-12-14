@@ -1,5 +1,5 @@
-obj
-bin
+Cp Prog/obj
+Cp Prog/bin
 
 .vscode
 
