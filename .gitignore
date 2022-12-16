@@ -1,6 +1,8 @@
 named bin
 bin/
 
+.vscode/
+
 named obj
 obj/
 obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs
@@ -8,3 +10,4 @@ obj/Debug/net6.0/Cp prog.AssemblyInfo.cs
 obj/Debug/net6.0/Cp prog.assets.cache
 obj/Debug/net6.0/Cp prog.csproj.FileListAbsolute.txt
 obj/Debug/net6.0/Cp prog.GeneratedMSBuildEditorConfig.editorconfig
+obj\Debug\net6.0\Cp prog.GlobalUsings.g.cs
