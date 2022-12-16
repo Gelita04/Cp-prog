@@ -130,7 +130,6 @@ namespace Equisde
                     return true;
             }
             return false;
-
         }
         public int DistanceFromANodeToBNode(T valueA, T valueB)
         {
@@ -150,9 +149,29 @@ namespace Equisde
                 if (result != 0) return result;
             }
             return result;
+        }
 
+        public int Inversions()
+        {
+            List<T> listOfOrderValues = new List<T>();
+            MakeArrInOrder(listOfOrderValues);
+            T[] arrValues = listOfOrderValues.ToArray();
+            return 0;
+        }
+        public void MakeArrInOrder(List<T> list)
+        {
+            if (left != null)
+            { left.MakeArrInOrder(list); list.Add(value); }
+            else if (left == null)
+                list.Add(value);
+
+            if (right != null)
+                right.MakeArrInOrder(list);
+            else if (right == null)
+                return;
         }
     }
+
 }
 
 
