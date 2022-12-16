@@ -41,11 +41,11 @@ namespace Equisde
         {
             this.value = value;
         }
-        public BinaryTree(T value, List<BinaryTree<T>> children)
+        public BinaryTree(T value, BinaryTree<T> left, BinaryTree<T> right)
         {
             this.value = value;
-            left = children[0];
-            right = children[1];
+            this.left = left;
+            this.right = right;
         }
 
         public void InsertTreeWithValue(T entry)
@@ -154,19 +154,20 @@ namespace Equisde
         public int Inversions()
         {
             List<T> listOfOrderValues = new List<T>();
-            MakeArrInOrder(listOfOrderValues);
+            InOrderArr(listOfOrderValues);
             T[] arrValues = listOfOrderValues.ToArray();
-            return 0;
+
+            //number of inversions to order an array
         }
-        public void MakeArrInOrder(List<T> list)
+        public void InOrderArr(List<T> list)
         {
             if (left != null)
-            { left.MakeArrInOrder(list); list.Add(value); }
+            { left.InOrderArr(list); list.Add(value); }
             else if (left == null)
                 list.Add(value);
 
             if (right != null)
-                right.MakeArrInOrder(list);
+                right.InOrderArr(list);
             else if (right == null)
                 return;
         }
