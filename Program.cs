@@ -11,4 +11,4 @@ new BinaryTree<int>(1,
             ,
             new BinaryTree<int>(11))));
 
-System.Console.WriteLine(arbol.Inversions());
+//System.Console.WriteLine(arbol.Inversions());

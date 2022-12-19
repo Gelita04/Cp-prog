@@ -151,26 +151,26 @@ namespace Equisde
             return result;
         }
 
-        public int Inversions()
-        {
-            List<T> listOfOrderValues = new List<T>();
-            InOrderArr(listOfOrderValues);
-            T[] arrValues = listOfOrderValues.ToArray();
+        // public int Inversions()
+        // {
+        //     List<T> listOfOrderValues = new List<T>();
+        //     InOrderArr(listOfOrderValues);
+        //     T[] arrValues = listOfOrderValues.ToArray();
 
-            //number of inversions to order an array
-        }
-        public void InOrderArr(List<T> list)
-        {
-            if (left != null)
-            { left.InOrderArr(list); list.Add(value); }
-            else if (left == null)
-                list.Add(value);
+        //     //number of inversions to order an array
+        // }
+        // public void InOrderArr(List<T> list)
+        // {
+        //     if (left != null)
+        //     { left.InOrderArr(list); list.Add(value); }
+        //     else if (left == null)
+        //         list.Add(value);
 
-            if (right != null)
-                right.InOrderArr(list);
-            else if (right == null)
-                return;
-        }
+        //     if (right != null)
+        //         right.InOrderArr(list);
+        //     else if (right == null)
+        //         return;
+        // }
     }
 
 }
