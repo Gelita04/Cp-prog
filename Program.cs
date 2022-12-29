@@ -1,8 +1,8 @@
 ﻿using Equisde;
 using System.Diagnostics;
-
-using MetodosFranco;
-
+using RANA;
+using Variacion;
+using MURALLA;
 // BinaryTree<int> arbol =
 // new BinaryTree<int>(1,
 //     new BinaryTree<int>(2,
@@ -70,3 +70,16 @@ using MetodosFranco;
 
 System.Console.WriteLine("started");
 var start = DateTime.Now.Ticks;
+
+//Variacion.Katrib.Combinaciones(new int[2], new bool[4], 0, 0, new int[] { 1, 2, 3, 4 });
+// Variacion.Katrib.Combinaciones(new int[2], 0, 0, new int[] { 1, 3, 5, 6 });
+// Console.WriteLine();
+// Variacion.Katrib.VariacionesSinRepeticiones(new int[2], new bool[4], 0, new int[] { 1, 3, 5, 6 });
+int[] secciones1 = { 8, 1, 4, 9, 3 };
+int constructores1 = 3;
+int result = int.MaxValue;
+MURALLA.MURALLA.MinTimeBuild(secciones1, constructores1, 0, 0, new int[constructores1], ref result);
+Console.WriteLine(result);
+Debug.Assert(result == 12);
+
+Console.WriteLine("Ok");

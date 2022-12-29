@@ -1,6 +1,6 @@
 using System;
 
-namespace MetodosFranco
+namespace RANA
 {
     public static class Charco
     {
