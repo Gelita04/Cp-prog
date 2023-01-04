@@ -3,6 +3,12 @@ using System.Diagnostics;
 using RANA;
 using Variacion;
 using MURALLA;
+using NivelandoTerreno;
+using Balancear_Cadena;
+using Weboo.Examen;
+
+//Arbol de Prueba//////////////////////////////////////
+
 // BinaryTree<int> arbol =
 // new BinaryTree<int>(1,
 //     new BinaryTree<int>(2,
@@ -16,6 +22,8 @@ using MURALLA;
 
 //System.Console.WriteLine(arbol.Inversions());
 
+
+//Rana//////////////////////////////////////////////////////////
 
 //Cambia aca abajo el nombre por el del cs para cambiar los metodos.....o descomenta y comenta
 
@@ -67,19 +75,85 @@ using MURALLA;
 // Debug.Assert(resultado3 == 0);
 // System.Console.WriteLine($"OK");
 
-
-System.Console.WriteLine("started");
-var start = DateTime.Now.Ticks;
-
+//Katrib
 //Variacion.Katrib.Combinaciones(new int[2], new bool[4], 0, 0, new int[] { 1, 2, 3, 4 });
 // Variacion.Katrib.Combinaciones(new int[2], 0, 0, new int[] { 1, 3, 5, 6 });
 // Console.WriteLine();
 // Variacion.Katrib.VariacionesSinRepeticiones(new int[2], new bool[4], 0, new int[] { 1, 3, 5, 6 });
-int[] secciones1 = { 8, 1, 4, 9, 3 };
-int constructores1 = 3;
-int result = int.MaxValue;
-MURALLA.MURALLA.MinTimeBuild(secciones1, constructores1, 0, 0, new int[constructores1], ref result);
-Console.WriteLine(result);
-Debug.Assert(result == 12);
 
-Console.WriteLine("Ok");
+//Muralla
+// int[] secciones1 = { 8, 1, 4, 9, 3 };
+// int constructores1 = 3;
+// int result = int.MaxValue;
+// MURALLA.MURALLA.MinTimeBuild(secciones1, constructores1, 0, 0, new int[constructores1], ref result);
+// Console.WriteLine(result);
+// Debug.Assert(result == 12);
+
+
+
+//Nivelar Terreno Robot
+
+// int[] parcelas = { 1, 1, 2, 3, 2, 2, 3, 2, 2 };
+// int result = NivelarTerreno.NT(parcelas);
+// Debug.Assert(result == 4);
+// Console.WriteLine("Ok");
+
+// string test = "])[]{(()(]{}[[{]}][)";
+// int result = Balancear_Cadena.Balancear_Cadena.MinOperacionesBC(test);
+// Console.WriteLine(result);
+// Debug.Assert(result == 6);
+// Console.WriteLine("Ok");
+System.Console.WriteLine("started");
+var start = DateTime.Now.Ticks;
+
+Test(
+            // Pesos
+            new[] { 10, 3, 3, 3, 3 },
+            // Combustible
+            new[,]
+            {
+                { 0, 2, 2, 3, 3 },
+                { 2, 0, 1, 4, 4 },
+                { 2, 1, 0, 4, 4 },
+                { 3, 4, 4, 0, 2 },
+                { 3, 4, 4, 2, 0 },
+            },
+            // Resultado esperado
+            13
+        );
+
+// Ejemplo2
+Test(
+    // Pesos
+    new[] { 20, 15, 10, 13, 17 },
+    // Combustible
+    new[,]
+    {
+                { 0, 4, 3, 1, 2 },
+                { 4, 0, 3, 3, 4 },
+                { 3, 3, 0, 2, 5 },
+                { 1, 3, 2, 0, 3 },
+                { 2, 4, 5, 3, 0 },
+    },
+    // Resultado esperado
+    20
+);
+
+static void Test(int[] pesos, int[,] combustible, int esperado)
+{
+    try
+    {
+        var resultado = TuEnvio.CombustibleDiario(pesos, combustible);
+
+        if (resultado != esperado)
+        {
+            throw new Exception($"Se esperaba {esperado} pero se obtuvo {resultado}");
+        }
+
+        Console.WriteLine($"🟢 Resultado correcto: {resultado}");
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"🔴 {e}");
+    }
+}
