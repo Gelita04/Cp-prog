@@ -6,6 +6,7 @@ using MURALLA;
 using NivelandoTerreno;
 using Balancear_Cadena;
 using Weboo.Examen;
+using WIFI;
 
 //Arbol de Prueba//////////////////////////////////////
 
@@ -75,11 +76,19 @@ using Weboo.Examen;
 // Debug.Assert(resultado3 == 0);
 // System.Console.WriteLine($"OK");
 
+
+////////////////////////////////////////////////
+
+
 //Katrib
 //Variacion.Katrib.Combinaciones(new int[2], new bool[4], 0, 0, new int[] { 1, 2, 3, 4 });
 // Variacion.Katrib.Combinaciones(new int[2], 0, 0, new int[] { 1, 3, 5, 6 });
 // Console.WriteLine();
 // Variacion.Katrib.VariacionesSinRepeticiones(new int[2], new bool[4], 0, new int[] { 1, 3, 5, 6 });
+
+
+/////////////////////////////////////////////////
+
 
 //Muralla
 // int[] secciones1 = { 8, 1, 4, 9, 3 };
@@ -89,6 +98,8 @@ using Weboo.Examen;
 // Console.WriteLine(result);
 // Debug.Assert(result == 12);
 
+
+//////////////////////////////////////////////////
 
 
 //Nivelar Terreno Robot
@@ -103,57 +114,82 @@ using Weboo.Examen;
 // Console.WriteLine(result);
 // Debug.Assert(result == 6);
 // Console.WriteLine("Ok");
+
+
+
+//////////////////////////////////////////////
+
+
+//TUENVIO
+// Test(
+//             // Pesos
+//             new[] { 10, 3, 3, 3, 3 },
+//             // Combustible
+//             new[,]
+//             {
+//                 { 0, 2, 2, 3, 3 },
+//                 { 2, 0, 1, 4, 4 },
+//                 { 2, 1, 0, 4, 4 },
+//                 { 3, 4, 4, 0, 2 },
+//                 { 3, 4, 4, 2, 0 },
+//             },
+//             // Resultado esperado
+//             13
+//         );
+
+// // Ejemplo2
+// Test(
+//     // Pesos
+//     new[] { 20, 15, 10, 13, 17 },
+//     // Combustible
+//     new[,]
+//     {
+//                 { 0, 4, 3, 1, 2 },
+//                 { 4, 0, 3, 3, 4 },
+//                 { 3, 3, 0, 2, 5 },
+//                 { 1, 3, 2, 0, 3 },
+//                 { 2, 4, 5, 3, 0 },
+//     },
+//     // Resultado esperado
+//     20
+// );
+
+// static void Test(int[] pesos, int[,] combustible, int esperado)
+// {
+//     try
+//     {
+//         var resultado = TuEnvio.CombustibleDiario(pesos, combustible);
+
+//         if (resultado != esperado)
+//         {
+//             throw new Exception($"Se esperaba {esperado} pero se obtuvo {resultado}");
+//         }
+
+//         Console.WriteLine($"🟢 Resultado correcto: {resultado}");
+//     }
+//     catch (Exception e)
+//     {
+//         Console.WriteLine($"🔴 {e}");
+//     }
+// }
+
+
+//////////////////////////////////////////
+
+
+//WIFI_UH
+
 System.Console.WriteLine("started");
 var start = DateTime.Now.Ticks;
 
-Test(
-            // Pesos
-            new[] { 10, 3, 3, 3, 3 },
-            // Combustible
-            new[,]
-            {
-                { 0, 2, 2, 3, 3 },
-                { 2, 0, 1, 4, 4 },
-                { 2, 1, 0, 4, 4 },
-                { 3, 4, 4, 0, 2 },
-                { 3, 4, 4, 2, 0 },
-            },
-            // Resultado esperado
-            13
-        );
+bool[,] area = new bool[7, 11];
+area[2, 2] = true;
+area[4, 2] = true;
+area[3, 7] = true;
 
-// Ejemplo2
-Test(
-    // Pesos
-    new[] { 20, 15, 10, 13, 17 },
-    // Combustible
-    new[,]
-    {
-                { 0, 4, 3, 1, 2 },
-                { 4, 0, 3, 3, 4 },
-                { 3, 3, 0, 2, 5 },
-                { 1, 3, 2, 0, 3 },
-                { 2, 4, 5, 3, 0 },
-    },
-    // Resultado esperado
-    20
-);
+int[] alcances = { 2, 1, 1 };
 
-static void Test(int[] pesos, int[,] combustible, int esperado)
-{
-    try
-    {
-        var resultado = TuEnvio.CombustibleDiario(pesos, combustible);
+Console.WriteLine(WIFIUH.CubrirArea(area,alcances));
 
-        if (resultado != esperado)
-        {
-            throw new Exception($"Se esperaba {esperado} pero se obtuvo {resultado}");
-        }
 
-        Console.WriteLine($"🟢 Resultado correcto: {resultado}");
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine($"🔴 {e}");
-    }
-}
+
