@@ -8,6 +8,7 @@ using Balancear_Cadena;
 using Weboo.Examen;
 using WIFI;
 using Manager;
+using filesystem;
 
 //Arbol de Prueba//////////////////////////////////////
 
@@ -180,47 +181,90 @@ using Manager;
 
 //WIFI_UH
 
-System.Console.WriteLine("started");
-var start = DateTime.Now.Ticks;
+// System.Console.WriteLine("started");
+// var start = DateTime.Now.Ticks;
 
-bool[,] area = new bool[7, 11];
-area[2, 2] = true;
-area[4, 2] = true;
-area[3, 7] = true;
+// bool[,] area = new bool[7, 11];
+// area[2, 2] = true;
+// area[4, 2] = true;
+// area[3, 7] = true;
 
-int[] alcances = { 2, 1, 1 };
+// int[] alcances = { 2, 1, 1 };
 
-Console.WriteLine(WIFIUH.CubrirArea(area, alcances));
+// Console.WriteLine(WIFIUH.CubrirArea(area, alcances));
 
-// Test(
-//          tareas: new[] { 5, 8, 16 },
-//          desarrolladores: new double[,]
-//          {
-//                 { 1.0, 0.5, 2.0 },
-//                 { 2.0, 1.0, 0.5 },
-//             },
-//          esperado: 9
-//      );
-
-
-// static void Test(int[] tareas, double[,] desarrolladores, double esperado)
-// {
-//     try
-//     {
-
-//         double resultado = Manager.Manager.DuracionProyecto(tareas, desarrolladores);
-//         if (resultado != esperado)
-//         {
-//             throw new Exception($"Se esperaba {esperado} pero se obtuvo {resultado}");
-//         }
-
-//         Console.WriteLine($"🟢 Resultado correcto: {resultado}");
-//     }
-//     catch (Exception e)
-//     {
-//         Console.WriteLine($"🔴 {e}");
-//     }
-// }
+// // Test(
+// //          tareas: new[] { 5, 8, 16 },
+// //          desarrolladores: new double[,]
+// //          {
+// //                 { 1.0, 0.5, 2.0 },
+// //                 { 2.0, 1.0, 0.5 },
+// //             },
+// //          esperado: 9
+// //      );
 
 
+// // static void Test(int[] tareas, double[,] desarrolladores, double esperado)
+// // {
+// //     try
+// //     {
+
+// //         double resultado = Manager.Manager.DuracionProyecto(tareas, desarrolladores);
+// //         if (resultado != esperado)
+// //         {
+// //             throw new Exception($"Se esperaba {esperado} pero se obtuvo {resultado}");
+// //         }
+
+// //         Console.WriteLine($"🟢 Resultado correcto: {resultado}");
+// //     }
+// //     catch (Exception e)
+// //     {
+// //         Console.WriteLine($"🔴 {e}");
+// //     }
+// // }
+
+
+
+
+
+// Creando un sistema de ficheros vacío
+var fs = Exam.CreateFileSystem();
+
+// Creando un par de carpetas en la raíz
+var root = fs.GetFolder("/");
+var home = root.CreateFolder("home");
+var tmp = root.CreateFolder("tmp");
+
+// Creando 10 archivos dentro de la carpeta `tmp`
+for (int i = 0; i < 10; i++)
+    tmp.CreateFile($"file{i}.tmp", 10);
+
+// Verificando el tamaño de `tmp`
+Debug.Assert(tmp.TotalSize() == 100);
+
+// Creando archivos en `home`
+home.CreateFile("picture.png", 20);
+home.CreateFile("document.docx", 150);
+home.CreateFile("virus.exe", 300);
+
+// Buscando un archivo concreto
+var virusFile = fs.GetFile("/home/virus.exe");
+Debug.Assert(virusFile.Name == "virus.exe");
+
+// Verificando el método `Find` con archivos grandes
+foreach (var file in fs.Find(file => file.Size > 50))
+    Debug.Assert(file.Size > 50);
+
+// Verificando el método `Find` con nombres
+foreach (var file in fs.Find(file => file.Name.EndsWith(".png")))
+    Debug.Assert(file.Name == "picture.png");
+
+// Ahora vamos a copiar `/tmp` para `/home` y verificar los tamaños
+fs.Copy("/tmp", "/home");
+Debug.Assert(home.TotalSize() == 570);
+Debug.Assert(fs.GetFolder("/tmp").TotalSize() ==
+             fs.GetFolder("/home/tmp").TotalSize());
+
+// Añade tus pruebas aquí
+// ...
 
