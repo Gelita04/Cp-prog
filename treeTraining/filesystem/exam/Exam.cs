@@ -71,7 +71,7 @@ public class Folder : IFolder, ICloneable
             if (folder.Name == name)
                 throw new Exception();
         }
-        ((List<Folder>)Folders).Add(new Folder(name));
+        ((List<IFolder>)Folders).Add(new Folder(name));
         return Folders.Last();
     }
 
@@ -110,6 +110,9 @@ public class FileSystem : IFileSystem
     }
     private IFolder GetFolder(string[] path, IFolder actualFolder, int depth)
     {
+        if ((((Folder)actualFolder).Folders).Count() == 0)
+        { return Root; }
+
         foreach (var folder in ((Folder)actualFolder).Folders)
         {
             if (folder.Name == path.Last())
@@ -205,7 +208,7 @@ public class FileSystem : IFileSystem
             }
              ((List<IFile>)((Folder)folderDestination).Files).Add((IFile)subject);
         }
-        else
+        else if (subject is IFolder)
         {
             for (int i = 0; i < (((Folder)folderDestination).Folders).Count(); i++)
             {
@@ -215,6 +218,8 @@ public class FileSystem : IFileSystem
             }
             ((List<IFolder>)((Folder)folderDestination).Folders).Add((IFolder)subject);
         }
+        else
+            throw new Exception(message: "q pinga hiciste");
     }
     private void MergeFromTo(IFolder fromFolder, IFolder toFolder)
     {
@@ -248,14 +253,14 @@ public class FileSystem : IFileSystem
         Object result = new Object();
         try
         {
-            result = GetFile(path, (Folder)actualFolder, 0);
+            result = ((File)GetFile(path, (Folder)actualFolder, 0)).Clone();
             return result;
         }
         catch (System.Exception)
         {
             try
             {
-                result = GetFolder(path, (Folder)actualFolder, 0);
+                result = ((Folder)GetFolder(path, (Folder)actualFolder, 0)).Clone();
                 return result;
             }
             catch (System.Exception)
@@ -296,6 +301,11 @@ public class FileSystem : IFileSystem
                 Delete(path, actualFolder, depth + 1);
         }
     }
-    private string[] MauricioParser(string path) => path.Split("/");
+    private string[] MauricioParser(string path)
+    {
+        if (path == "/")
+            return new string[] { "/" };
+        return path.Split("/", StringSplitOptions.RemoveEmptyEntries);
+    }
 
 }

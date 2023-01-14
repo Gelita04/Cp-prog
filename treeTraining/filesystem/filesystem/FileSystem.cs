@@ -1,6 +1,5 @@
 ﻿namespace filesystem
 {
-
     public delegate bool FileFilter(IFile file);
 
     public interface IFile
