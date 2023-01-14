@@ -7,6 +7,7 @@ using NivelandoTerreno;
 using Balancear_Cadena;
 using Weboo.Examen;
 using WIFI;
+using Manager;
 
 //Arbol de Prueba//////////////////////////////////////
 
@@ -191,35 +192,35 @@ int[] alcances = { 2, 1, 1 };
 
 Console.WriteLine(WIFIUH.CubrirArea(area, alcances));
 
-Test(
-         tareas: new[] { 5, 8, 16 },
-         desarrolladores: new double[,]
-         {
-                { 1.0, 0.5, 2.0 },
-                { 2.0, 1.0, 0.5 },
-            },
-         esperado: 9
-     );
+// Test(
+//          tareas: new[] { 5, 8, 16 },
+//          desarrolladores: new double[,]
+//          {
+//                 { 1.0, 0.5, 2.0 },
+//                 { 2.0, 1.0, 0.5 },
+//             },
+//          esperado: 9
+//      );
 
 
-static void Test(int[] tareas, double[,] desarrolladores, double esperado)
-{
-    try
-    {
+// static void Test(int[] tareas, double[,] desarrolladores, double esperado)
+// {
+//     try
+//     {
 
-        double resultado = Manager.DuracionProyecto(tareas, desarrolladores);
-        if (resultado != esperado)
-        {
-            throw new Exception($"Se esperaba {esperado} pero se obtuvo {resultado}");
-        }
+//         double resultado = Manager.Manager.DuracionProyecto(tareas, desarrolladores);
+//         if (resultado != esperado)
+//         {
+//             throw new Exception($"Se esperaba {esperado} pero se obtuvo {resultado}");
+//         }
 
-        Console.WriteLine($"🟢 Resultado correcto: {resultado}");
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine($"🔴 {e}");
-    }
-}
+//         Console.WriteLine($"🟢 Resultado correcto: {resultado}");
+//     }
+//     catch (Exception e)
+//     {
+//         Console.WriteLine($"🔴 {e}");
+//     }
+// }
 
 
 
