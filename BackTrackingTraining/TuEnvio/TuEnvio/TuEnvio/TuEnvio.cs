@@ -7,7 +7,7 @@
             int result = int.MaxValue;
             bool[] mask = new bool[pesos.Length];
             CombustibleDiario(pesos, mask, combustible, 0, 0, 0, ref result);
-            //poner caso en q returne -1
+
             if (result == int.MaxValue)
                 return -1;
             return result;

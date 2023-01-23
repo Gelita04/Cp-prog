@@ -1,4 +1,5 @@
 using filesystem;
+using System;
 
 public class Exam
 {
@@ -166,21 +167,25 @@ public class FileSystem : IFileSystem
 
     public IEnumerable<IFile> Find(FileFilter filter)
     {
-        List<IFile> result = new List<IFile>();
-        Find(filter, Root, 0, result);
-        return result;
+        // List<IFile> result = new List<IFile>();
+        return Find(filter, Root, 0);
+
     }
-    private void Find(FileFilter filter, IFolder actualFolder, int depth, List<IFile> result)
+    private IEnumerable<IFile> Find(FileFilter filter, IFolder actualFolder, int depth)
     {
         foreach (IFile file in ((Folder)actualFolder).Files)
         {
             if (filter(file))
-                result.Add(file);
+                yield return file;
         }
 
         foreach (IFolder folder in ((Folder)actualFolder).Folders)
         {
-            Find(filter, folder, depth + 1, result);
+            foreach (var item in Find(filter, folder, depth + 1))
+            {
+                yield return item;
+            }
+
         }
     }
 

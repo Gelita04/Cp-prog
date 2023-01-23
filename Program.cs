@@ -9,6 +9,7 @@ using Weboo.Examen;
 using WIFI;
 using Manager;
 using filesystem;
+using System;
 
 //Arbol de Prueba//////////////////////////////////////
 
@@ -181,8 +182,7 @@ using filesystem;
 
 //WIFI_UH
 
-// System.Console.WriteLine("started");
-// var start = DateTime.Now.Ticks;
+
 
 // bool[,] area = new bool[7, 11];
 // area[2, 2] = true;
@@ -227,44 +227,106 @@ using filesystem;
 
 
 
-// Creando un sistema de ficheros vacío
-var fs = Exam.CreateFileSystem();
+// // Creando un sistema de ficheros vacío
+// var fs = Exam.CreateFileSystem();
 
-// Creando un par de carpetas en la raíz
-var root = fs.GetFolder("/");
-var home = root.CreateFolder("home");
-var tmp = root.CreateFolder("tmp");
+// // Creando un par de carpetas en la raíz
+// var root = fs.GetFolder("/");
+// var home = root.CreateFolder("home");
+// var tmp = root.CreateFolder("tmp");
 
-// Creando 10 archivos dentro de la carpeta `tmp`
-for (int i = 0; i < 10; i++)
-    tmp.CreateFile($"file{i}.tmp", 10);
+// // Creando 10 archivos dentro de la carpeta `tmp`
+// for (int i = 0; i < 10; i++)
+//     tmp.CreateFile($"file{i}.tmp", 10);
 
-// Verificando el tamaño de `tmp`
-Debug.Assert(tmp.TotalSize() == 100);
+// // Verificando el tamaño de `tmp`
+// Debug.Assert(tmp.TotalSize() == 100);
 
-// Creando archivos en `home`
-home.CreateFile("picture.png", 20);
-home.CreateFile("document.docx", 150);
-home.CreateFile("virus.exe", 300);
+// // Creando archivos en `home`
+// home.CreateFile("picture.png", 20);
+// home.CreateFile("document.docx", 150);
+// home.CreateFile("virus.exe", 300);
 
-// Buscando un archivo concreto
-var virusFile = fs.GetFile("/home/virus.exe");
-Debug.Assert(virusFile.Name == "virus.exe");
+// // Buscando un archivo concreto
+// var virusFile = fs.GetFile("/home/virus.exe");
+// Debug.Assert(virusFile.Name == "virus.exe");
 
-// Verificando el método `Find` con archivos grandes
-foreach (var file in fs.Find(file => file.Size > 50))
-    Debug.Assert(file.Size > 50);
+// // Verificando el método `Find` con archivos grandes
+// foreach (var file in fs.Find(file => file.Size > 50))
+//     Debug.Assert(file.Size > 50);
 
-// Verificando el método `Find` con nombres
-foreach (var file in fs.Find(file => file.Name.EndsWith(".png")))
-    Debug.Assert(file.Name == "picture.png");
+// // Verificando el método `Find` con nombres
+// foreach (var file in fs.Find(file => file.Name.EndsWith(".png")))
+//     Debug.Assert(file.Name == "picture.png");
 
-// Ahora vamos a copiar `/tmp` para `/home` y verificar los tamaños
-fs.Copy("/tmp", "/home");
-Debug.Assert(home.TotalSize() == 570);
-Debug.Assert(fs.GetFolder("/tmp").TotalSize() ==
-             fs.GetFolder("/home/tmp").TotalSize());
+// // Ahora vamos a copiar `/tmp` para `/home` y verificar los tamaños
+// fs.Copy("/tmp", "/home");
+// Debug.Assert(home.TotalSize() == 570);
+// Debug.Assert(fs.GetFolder("/tmp").TotalSize() ==
+//              fs.GetFolder("/home/tmp").TotalSize());
 
-// Añade tus pruebas aquí
-// ...
+// // Añade tus pruebas aquí
+// // ...
 
+System.Console.WriteLine("started");
+
+// bool T = true;
+// bool F = false;
+
+// // 0  1  2  3  4  5
+// bool[,] dungeons1 = {{F, F, T, F, F, F },    //0
+//                 /*  0  1  */     {F, F, F, T, F, F },    //1
+//                 /*  |  |  */     {T, F, F, T, T, F },    //2
+//                 /*  2--3  */     {F, T, T, F, F, T },    //3
+//                 /*  |  |  */     {F, F, T, F, F, F },    //4
+//                 /*  4  5  */     {F, F, F, T, F, F }};   //5
+
+// //                   // 0  1  2  3  4
+// bool[,] dungeons2 = {{F, F, T, F, F},    //0
+//               /*     0     */    {F, F, T, F, F},    //1
+//               /*     |     */    {T, T, F, T, T},    //2 
+//               /*  1--2--3  */    {F, F, T, F, F},    //3
+//               /*     |     */    {F, F, T, F, F}};   //4
+// /*     4     */
+
+// Console.WriteLine(string.Join(" ", ProblemaAntorchas.AsignaAntorchas(dungeons1)));
+// // [2, 3]
+
+// Console.WriteLine(string.Join(" ", ProblemaAntorchas.AsignaAntorchas(dungeons2)));
+// // [2]
+
+
+Test(
+            // Tareas
+            new int[] { 5, 8, 16 },
+            // Combustible
+            new double[2, 3]
+            {
+                { 1.0, 0.5 , 2.0 },
+                { 2.0, 1.0, 0.5},
+
+            },
+            // Resultado esperado
+            9
+        );
+
+
+
+static void Test(int[] tareas, double[,] desarrolladores, int esperado)
+{
+    try
+    {
+        var resultado = Manager.Manager.DuracionProyecto(tareas, desarrolladores);
+
+        if (resultado != esperado)
+        {
+            throw new Exception($"Se esperaba {esperado} pero se obtuvo {resultado}");
+        }
+
+        Console.WriteLine($"🟢 Resultado correcto: {resultado}");
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"🔴 {e}");
+    }
+}
