@@ -93,7 +93,6 @@ namespace RANA
             int[] arrDirRow = { 1, 1, 1 };
             int[] arrDirCol = { -1, 0, 1 };
             bool[] mask = new bool[chocos.GetLength(1)];
-           
             ComiendoChocolatess(chocos, mask, ranas, ref result, 1, arrDirCol, 0, 0);
             return result;
         }
@@ -108,15 +107,37 @@ namespace RANA
                 return;
             }
 
+            // if (newCoord >= 0 && newCoord < chocos.GetLength(1) && !mask[newCoord])
+            // {
+
+
+            //     ranas[idRanaActual] = newCoord;
+
+            //     mask[ranas[idRanaActual]] = true;
+            // }
+            // else
+            //     continue;
+
+            // if (newCoord >= 0 && newCoord < chocos.GetLength(1))
+            // {
+            //     ranas[idRanaActual] += arrDirCol[i];
+
+            //     if (ranas.Where(x => x == newCoord).Count() >= 2)
+            //     { ranas[idRanaActual] -= arrDirCol[i]; continue; }
+
+            // }
+            // else
+            //     continue;
+
             for (int i = 0; i < arrDirCol.Length; i++)//-1,0,1
             {
                 int newCoord = ranas[idRanaActual] + arrDirCol[i];
 
                 if (newCoord >= 0 && newCoord < chocos.GetLength(1) && !mask[newCoord])
                 {
-                    mask[ranas[idRanaActual]] = false;
 
-                    ranas[idRanaActual] += arrDirCol[i];
+
+                    ranas[idRanaActual] = newCoord;
 
                     mask[ranas[idRanaActual]] = true;
                 }
@@ -130,7 +151,9 @@ namespace RANA
 
                 ComiendoChocolatess(chocos, idRanaActual == ranas.Length - 1 ? new bool[chocos.GetLength(1)] : mask, ranas, ref result, idRanaActual == ranas.Length - 1 ? actualRow + 1 : actualRow, arrDirCol, idRanaActual == ranas.Length - 1 ? 0 : idRanaActual + 1, chocolatesTotalesComidos + chocolatesActualesComidos);
 
+                mask[ranas[idRanaActual]] = false;
                 ranas[idRanaActual] -= arrDirCol[i];
+               
             }
         }
     }
