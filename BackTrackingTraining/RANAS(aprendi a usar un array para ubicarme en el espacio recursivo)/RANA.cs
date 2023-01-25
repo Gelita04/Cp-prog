@@ -92,10 +92,12 @@ namespace RANA
             int result = 0;
             int[] arrDirRow = { 1, 1, 1 };
             int[] arrDirCol = { -1, 0, 1 };
-            ComiendoChocolatess(chocos, ranas, ref result, 1, arrDirCol, 0, 0);
+            bool[] mask = new bool[chocos.GetLength(1)];
+           
+            ComiendoChocolatess(chocos, mask, ranas, ref result, 1, arrDirCol, 0, 0);
             return result;
         }
-        static void ComiendoChocolatess(bool[,] chocos, int[] ranas, ref int result, int actualRow, int[] arrDirCol, int idRanaActual, int chocolatesTotalesComidos)
+        static void ComiendoChocolatess(bool[,] chocos, bool[] mask, int[] ranas, ref int result, int actualRow, int[] arrDirCol, int idRanaActual, int chocolatesTotalesComidos)
         {
 
             if (actualRow == chocos.GetLength(0))
@@ -108,31 +110,27 @@ namespace RANA
 
             for (int i = 0; i < arrDirCol.Length; i++)//-1,0,1
             {
-
-                bool notModifiqued = false;
-
                 int newCoord = ranas[idRanaActual] + arrDirCol[i];
 
-                if (newCoord >= 0 && newCoord < chocos.GetLength(1))
+                if (newCoord >= 0 && newCoord < chocos.GetLength(1) && !mask[newCoord])
                 {
+                    mask[ranas[idRanaActual]] = false;
 
                     ranas[idRanaActual] += arrDirCol[i];
 
-                    if (ranas.Where(x => x == newCoord).Count() >= 2)
-                    { ranas[idRanaActual] -= arrDirCol[i]; notModifiqued = true; }
-
+                    mask[ranas[idRanaActual]] = true;
                 }
                 else
                     continue;
 
                 int chocolatesActualesComidos = 0;
-               
+
                 if (chocos[actualRow, ranas[idRanaActual]])
                     chocolatesActualesComidos = 1;
 
-                ComiendoChocolatess(chocos, ranas, ref result, idRanaActual == ranas.Length - 1 ? actualRow + 1 : actualRow, arrDirCol, idRanaActual == ranas.Length - 1 ? 0 : idRanaActual + 1, chocolatesTotalesComidos + chocolatesActualesComidos);
-                if (!notModifiqued)
-                    ranas[idRanaActual] -= arrDirCol[i];
+                ComiendoChocolatess(chocos, idRanaActual == ranas.Length - 1 ? new bool[chocos.GetLength(1)] : mask, ranas, ref result, idRanaActual == ranas.Length - 1 ? actualRow + 1 : actualRow, arrDirCol, idRanaActual == ranas.Length - 1 ? 0 : idRanaActual + 1, chocolatesTotalesComidos + chocolatesActualesComidos);
+
+                ranas[idRanaActual] -= arrDirCol[i];
             }
         }
     }
