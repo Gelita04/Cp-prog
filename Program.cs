@@ -36,48 +36,48 @@ using System;
 //implementa la solucion en MetodosFranco.cs - Todos los metodos
 //deben ser estaticos(hice la clase estatica, notese q no se instancia nunca)
 
-// System.Console.WriteLine("started");
-// var start = DateTime.Now.Ticks;
+System.Console.WriteLine("started");
+var start = DateTime.Now.Ticks;
 
 // DESCOMENTA ESTO CUANDO SIENTAS Q TODO TA LINDO
-// int resultado1 = Charco.ComiendoChocolates(new bool[,] {
-// { false, false, false, false, false, false, false, false },
-// { false, false, true, false, false, true, false, false },
-// { false, true, false, false, true, false, true, false },
-// { false, false, true, false, false, false, false, true },
-// { false, false, false, false, false, false, false, false }
-// }, new int[] { 1, 3, 6 });
+int resultado1 = Charco.ComiendoChocolates(new bool[,] {
+{ false, false, false, false, false, false, false, false },
+{ false, false, true, false, false, true, false, false },
+{ false, true, false, false, true, false, true, false },
+{ false, false, true, false, false, false, false, true },
+{ false, false, false, false, false, false, false, false }
+}, new int[] { 1, 3, 6 });
 
-// int resultado2 = Charco.ComiendoChocolates(new bool[,] {
-//             //           //                   //
-//  { false, false, false, false, false, false, false, false },
-//  { false, false, true, false, false, true, false, false },
-//  { false, true, false, false, true, false, true, false },
-//  { true, false, true, false, false, false, false, true }
-//  }, new int[] { 1, 3, 6 });
+int resultado2 = Charco.ComiendoChocolates(new bool[,] {
+            //           //                   //
+ { false, false, false, false, false, false, false, false },
+ { false, false, true, false, false, true, false, false },
+ { false, true, false, false, true, false, true, false },
+ { true, false, true, false, false, false, false, true }
+ }, new int[] { 1, 3, 6 });
 
-// int resultado3 = Charco.ComiendoChocolates(new bool[,] {
-//  { false, false, false, false, false, false, false, false },
-//  { false, false, false, false, false, true, false, true },
-//  { false, false, false, false, false, false, true, false },
-//  { false, false, false, false, false, false, false, true }
-//  }, new int[] { 1, 3 });
+int resultado3 = Charco.ComiendoChocolates(new bool[,] {
+ { false, false, false, false, false, false, false, false },
+ { false, false, false, false, false, true, false, true },
+ { false, false, false, false, false, false, true, false },
+ { false, false, false, false, false, false, false, true }
+ }, new int[] { 1, 3 });
 
-// double time = (double)(DateTime.Now.Ticks - start) / 1000000;
-// System.Console.WriteLine($"ended in {time} secs");
+double time = (double)(DateTime.Now.Ticks - start) / 1000000;
+System.Console.WriteLine($"ended in {time} secs");
 
-// //Para cuando descomentes el 1 arriba
-// Console.WriteLine(resultado1);
-// Debug.Assert(resultado1 == 7);
-// System.Console.WriteLine($"OK");
+//Para cuando descomentes el 1 arriba
+Console.WriteLine(resultado1);
+Debug.Assert(resultado1 == 7);
+System.Console.WriteLine($"OK");
 
-// Console.WriteLine(resultado2);
-// Debug.Assert(resultado2 == 7);
-// System.Console.WriteLine($"OK");
+Console.WriteLine(resultado2);
+Debug.Assert(resultado2 == 7);
+System.Console.WriteLine($"OK");
 
-// Console.WriteLine(resultado3);
-// Debug.Assert(resultado3 == 0);
-// System.Console.WriteLine($"OK");
+Console.WriteLine(resultado3);
+Debug.Assert(resultado3 == 0);
+System.Console.WriteLine($"OK");
 
 
 ////////////////////////////////////////////////
@@ -123,7 +123,7 @@ using System;
 //////////////////////////////////////////////
 
 
-//TUENVIO
+// //TUENVIO
 // Test(
 //             // Pesos
 //             new[] { 10, 3, 3, 3, 3 },
@@ -296,37 +296,37 @@ System.Console.WriteLine("started");
 // // [2]
 
 
-Test(
-            // Tareas
-            new int[] { 5, 8, 16 },
-            // Combustible
-            new double[2, 3]
-            {
-                { 1.0, 0.5 , 2.0 },
-                { 2.0, 1.0, 0.5},
+// Test(
+//             // Tareas
+//             new int[] { 5, 8, 16 },
+//             // Combustible
+//             new double[2, 3]
+//             {
+//                 { 1.0, 0.5 , 2.0 },
+//                 { 2.0, 1.0, 0.5},
 
-            },
-            // Resultado esperado
-            9
-        );
+//             },
+//             // Resultado esperado
+//             9
+//         );
 
 
 
-static void Test(int[] tareas, double[,] desarrolladores, int esperado)
-{
-    try
-    {
-        var resultado = Manager.Manager.DuracionProyecto(tareas, desarrolladores);
+// static void Test(int[] tareas, double[,] desarrolladores, int esperado)
+// {
+//     try
+//     {
+//         var resultado = Manager.Manager.DuracionProyecto(tareas, desarrolladores);
 
-        if (resultado != esperado)
-        {
-            throw new Exception($"Se esperaba {esperado} pero se obtuvo {resultado}");
-        }
+//         if (resultado != esperado)
+//         {
+//             throw new Exception($"Se esperaba {esperado} pero se obtuvo {resultado}");
+//         }
 
-        Console.WriteLine($"🟢 Resultado correcto: {resultado}");
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine($"🔴 {e}");
-    }
-}
+//         Console.WriteLine($"🟢 Resultado correcto: {resultado}");
+//     }
+//     catch (Exception e)
+//     {
+//         Console.WriteLine($"🔴 {e}");
+//     }
+// }

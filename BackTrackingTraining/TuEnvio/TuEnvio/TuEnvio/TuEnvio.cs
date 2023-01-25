@@ -15,6 +15,8 @@
         }
         static void CombustibleDiario(int[] pesos, bool[] mask, int[,] combustible, int combustibleGastado, int actualCoordinates, int pesoActual, ref int result)
         {
+            if (combustibleGastado > result)
+                return;
 
             if (IsValid(mask))
             {
