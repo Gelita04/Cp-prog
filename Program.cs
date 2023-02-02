@@ -36,48 +36,45 @@ using System;
 //implementa la solucion en MetodosFranco.cs - Todos los metodos
 //deben ser estaticos(hice la clase estatica, notese q no se instancia nunca)
 
-System.Console.WriteLine("started");
-var start = DateTime.Now.Ticks;
 
-// DESCOMENTA ESTO CUANDO SIENTAS Q TODO TA LINDO
-int resultado1 = Charco.ComiendoChocolates(new bool[,] {
-{ false, false, false, false, false, false, false, false },
-{ false, false, true, false, false, true, false, false },
-{ false, true, false, false, true, false, true, false },
-{ false, false, true, false, false, false, false, true },
-{ false, false, false, false, false, false, false, false }
-}, new int[] { 1, 3, 6 });
+// // DESCOMENTA ESTO CUANDO SIENTAS Q TODO TA LINDO
+// int resultado1 = Charco.ComiendoChocolates(new bool[,] {
+// { false, false, false, false, false, false, false, false },
+// { false, false, true, false, false, true, false, false },
+// { false, true, false, false, true, false, true, false },
+// { false, false, true, false, false, false, false, true },
+// { false, false, false, false, false, false, false, false }
+// }, new int[] { 1, 3, 6 });
 
-int resultado2 = Charco.ComiendoChocolates(new bool[,] {
-            //           //                   //
- { false, false, false, false, false, false, false, false },
- { false, false, true, false, false, true, false, false },
- { false, true, false, false, true, false, true, false },
- { true, false, true, false, false, false, false, true }
- }, new int[] { 1, 3, 6 });
+// int resultado2 = Charco.ComiendoChocolates(new bool[,] {
+//             //           //                   //
+//  { false, false, false, false, false, false, false, false },
+//  { false, false, true, false, false, true, false, false },
+//  { false, true, false, false, true, false, true, false },
+//  { true, false, true, false, false, false, false, true }
+//  }, new int[] { 1, 3, 6 });
 
-int resultado3 = Charco.ComiendoChocolates(new bool[,] {
- { false, false, false, false, false, false, false, false },
- { false, false, false, false, false, true, false, true },
- { false, false, false, false, false, false, true, false },
- { false, false, false, false, false, false, false, true }
- }, new int[] { 1, 3 });
+// int resultado3 = Charco.ComiendoChocolates(new bool[,] {
+//  { false, false, false, false, false, false, false, false },
+//  { false, false, false, false, false, true, false, true },
+//  { false, false, false, false, false, false, true, false },
+//  { false, false, false, false, false, false, false, true }
+//  }, new int[] { 1, 3 });
 
-double time = (double)(DateTime.Now.Ticks - start) / 1000000;
-System.Console.WriteLine($"ended in {time} secs");
 
-//Para cuando descomentes el 1 arriba
-Console.WriteLine(resultado1);
-Debug.Assert(resultado1 == 7);
-System.Console.WriteLine($"OK");
 
-Console.WriteLine(resultado2);
-Debug.Assert(resultado2 == 7);
-System.Console.WriteLine($"OK");
+// //Para cuando descomentes el 1 arriba
+// Console.WriteLine(resultado1);
+// Debug.Assert(resultado1 == 7);
+// System.Console.WriteLine($"OK");
 
-Console.WriteLine(resultado3);
-Debug.Assert(resultado3 == 0);
-System.Console.WriteLine($"OK");
+// Console.WriteLine(resultado2);
+// Debug.Assert(resultado2 == 7);
+// System.Console.WriteLine($"OK");
+
+// Console.WriteLine(resultado3);
+// Debug.Assert(resultado3 == 0);
+// System.Console.WriteLine($"OK");
 
 
 ////////////////////////////////////////////////
@@ -122,65 +119,74 @@ System.Console.WriteLine($"OK");
 
 //////////////////////////////////////////////
 
+System.Console.WriteLine("started");
+var start = DateTime.Now.Ticks;
 
-// //TUENVIO
-// Test(
-//             // Pesos
-//             new[] { 10, 3, 3, 3, 3 },
-//             // Combustible
-//             new[,]
-//             {
-//                 { 0, 2, 2, 3, 3 },
-//                 { 2, 0, 1, 4, 4 },
-//                 { 2, 1, 0, 4, 4 },
-//                 { 3, 4, 4, 0, 2 },
-//                 { 3, 4, 4, 2, 0 },
-//             },
-//             // Resultado esperado
-//             13
-//         );
+//TUENVIO
+Test(
+            // Pesos
+            new[] { 10, 3, 3, 3, 3 },
+            // Combustible
+            new[,]
+            {
+                { 0, 2, 2, 3, 3 },
+                { 2, 0, 1, 4, 4 },
+                { 2, 1, 0, 4, 4 },
+                { 3, 4, 4, 0, 2 },
+                { 3, 4, 4, 2, 0 },
+            },
+            // Resultado esperado
+            13
+        );
+double time = (double)(DateTime.Now.Ticks - start) / 1000000;
+System.Console.WriteLine($"ended in {time} secs");
+
+System.Console.WriteLine("started");
+start = DateTime.Now.Ticks;
 
 // // Ejemplo2
-// Test(
-//     // Pesos
-//     new[] { 20, 15, 10, 13, 17 },
-//     // Combustible
-//     new[,]
-//     {
-//                 { 0, 4, 3, 1, 2 },
-//                 { 4, 0, 3, 3, 4 },
-//                 { 3, 3, 0, 2, 5 },
-//                 { 1, 3, 2, 0, 3 },
-//                 { 2, 4, 5, 3, 0 },
-//     },
-//     // Resultado esperado
-//     20
-// );
+Test(
+    // Pesos
+    new[] { 20, 15, 10, 13, 17 },
+    // Combustible
+    new[,]
+    {
+                { 0, 4, 3, 1, 2 },
+                { 4, 0, 3, 3, 4 },
+                { 3, 3, 0, 2, 5 },
+                { 1, 3, 2, 0, 3 },
+                { 2, 4, 5, 3, 0 },
+    },
+    // Resultado esperado
+    20
+);
+time = (double)(DateTime.Now.Ticks - start) / 1000000;
+System.Console.WriteLine($"ended in {time} secs");
 
-// static void Test(int[] pesos, int[,] combustible, int esperado)
-// {
-//     try
-//     {
-//         var resultado = TuEnvio.CombustibleDiario(pesos, combustible);
+static void Test(int[] pesos, int[,] combustible, int esperado)
+{
+    try
+    {
+        var resultado = TuEnvio.CombustibleDiario(pesos, combustible);
 
-//         if (resultado != esperado)
-//         {
-//             throw new Exception($"Se esperaba {esperado} pero se obtuvo {resultado}");
-//         }
+        if (resultado != esperado)
+        {
+            throw new Exception($"Se esperaba {esperado} pero se obtuvo {resultado}");
+        }
 
-//         Console.WriteLine($"🟢 Resultado correcto: {resultado}");
-//     }
-//     catch (Exception e)
-//     {
-//         Console.WriteLine($"🔴 {e}");
-//     }
-// }
-
-
-//////////////////////////////////////////
+        Console.WriteLine($"🟢 Resultado correcto: {resultado}");
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"🔴 {e}");
+    }
+}
 
 
-//WIFI_UH
+// ////////////////////////////////////////
+
+
+// WIFI_UH
 
 
 
