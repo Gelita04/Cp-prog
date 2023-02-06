@@ -9,6 +9,7 @@ using Weboo.Examen;
 using WIFI;
 using Manager;
 using filesystem;
+using QueensN;
 using System;
 
 //Arbol de Prueba//////////////////////////////////////
@@ -119,49 +120,49 @@ using System;
 
 //////////////////////////////////////////////
 
-System.Console.WriteLine("started");
-var start = DateTime.Now.Ticks;
+// System.Console.WriteLine("started");
+// var start = DateTime.Now.Ticks;
 
 //TUENVIO
-Test(
-            // Pesos
-            new[] { 10, 3, 3, 3, 3 },
-            // Combustible
-            new[,]
-            {
-                { 0, 2, 2, 3, 3 },
-                { 2, 0, 1, 4, 4 },
-                { 2, 1, 0, 4, 4 },
-                { 3, 4, 4, 0, 2 },
-                { 3, 4, 4, 2, 0 },
-            },
-            // Resultado esperado
-            13
-        );
-double time = (double)(DateTime.Now.Ticks - start) / 1000000;
-System.Console.WriteLine($"ended in {time} secs");
+// Test(
+//             // Pesos
+//             new[] { 10, 3, 3, 3, 3 },
+//             // Combustible
+//             new[,]
+//             {
+//                 { 0, 2, 2, 3, 3 },
+//                 { 2, 0, 1, 4, 4 },
+//                 { 2, 1, 0, 4, 4 },
+//                 { 3, 4, 4, 0, 2 },
+//                 { 3, 4, 4, 2, 0 },
+//             },
+//             // Resultado esperado
+//             13
+//         );
+// double time = (double)(DateTime.Now.Ticks - start) / 1000000;
+// System.Console.WriteLine($"ended in {time} secs");
 
-System.Console.WriteLine("started");
-start = DateTime.Now.Ticks;
+// System.Console.WriteLine("started");
+// start = DateTime.Now.Ticks;
 
 // // Ejemplo2
-Test(
-    // Pesos
-    new[] { 20, 15, 10, 13, 17 },
-    // Combustible
-    new[,]
-    {
-                { 0, 4, 3, 1, 2 },
-                { 4, 0, 3, 3, 4 },
-                { 3, 3, 0, 2, 5 },
-                { 1, 3, 2, 0, 3 },
-                { 2, 4, 5, 3, 0 },
-    },
-    // Resultado esperado
-    20
-);
-time = (double)(DateTime.Now.Ticks - start) / 1000000;
-System.Console.WriteLine($"ended in {time} secs");
+// Test(
+//     // Pesos
+//     new[] { 20, 15, 10, 13, 17 },
+//     // Combustible
+//     new[,]
+//     {
+//                 { 0, 4, 3, 1, 2 },
+//                 { 4, 0, 3, 3, 4 },
+//                 { 3, 3, 0, 2, 5 },
+//                 { 1, 3, 2, 0, 3 },
+//                 { 2, 4, 5, 3, 0 },
+//     },
+//     // Resultado esperado
+//     20
+// );
+// time = (double)(DateTime.Now.Ticks - start) / 1000000;
+// System.Console.WriteLine($"ended in {time} secs");
 
 static void Test(int[] pesos, int[,] combustible, int esperado)
 {
@@ -274,7 +275,7 @@ static void Test(int[] pesos, int[,] combustible, int esperado)
 // // Añade tus pruebas aquí
 // // ...
 
-System.Console.WriteLine("started");
+// System.Console.WriteLine("started");
 
 // bool T = true;
 // bool F = false;
