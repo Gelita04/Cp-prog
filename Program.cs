@@ -12,6 +12,33 @@ using filesystem;
 using QueensN;
 using System;
 
+static void Test(int[] datos_trabajadores, int[] posicion_depositos, int[,] combustible, int esperado)
+{
+    try
+    {
+        var resultado = N_Depositos_M_Carritos.N_Depositos.N_Deposits(posicion_depositos, datos_trabajadores.Length, combustible);
+
+        if (resultado != esperado)
+        {
+            throw new Exception($"Se esperaba {esperado} pero se obtuvo {resultado}");
+        }
+
+        Console.WriteLine($"🟢 Resultado correcto: {resultado}");
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"🔴 {e}");
+    }
+}
+
+int[,] matrix = new int[,]{{0, 5, 1, 3},
+                           {5, 0, 3, 1},
+                           {1, 3, 0, 5},
+                           {3, 1, 5, 0}};
+
+
+
+Test(new int[] { 0, 0 }, new int[] { 0,2 }, matrix, 9);
 //Arbol de Prueba//////////////////////////////////////
 
 // BinaryTree<int> arbol =
@@ -164,24 +191,7 @@ using System;
 // time = (double)(DateTime.Now.Ticks - start) / 1000000;
 // System.Console.WriteLine($"ended in {time} secs");
 
-static void Test(int[] pesos, int[,] combustible, int esperado)
-{
-    try
-    {
-        var resultado = TuEnvio.CombustibleDiario(pesos, combustible);
 
-        if (resultado != esperado)
-        {
-            throw new Exception($"Se esperaba {esperado} pero se obtuvo {resultado}");
-        }
-
-        Console.WriteLine($"🟢 Resultado correcto: {resultado}");
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine($"🔴 {e}");
-    }
-}
 
 
 // ////////////////////////////////////////
@@ -319,21 +329,4 @@ static void Test(int[] pesos, int[,] combustible, int esperado)
 
 
 
-// static void Test(int[] tareas, double[,] desarrolladores, int esperado)
-// {
-//     try
-//     {
-//         var resultado = Manager.Manager.DuracionProyecto(tareas, desarrolladores);
 
-//         if (resultado != esperado)
-//         {
-//             throw new Exception($"Se esperaba {esperado} pero se obtuvo {resultado}");
-//         }
-
-//         Console.WriteLine($"🟢 Resultado correcto: {resultado}");
-//     }
-//     catch (Exception e)
-//     {
-//         Console.WriteLine($"🔴 {e}");
-//     }
-// }
