@@ -24,7 +24,7 @@
                     result = combustibleGastado + combustible[actualCoordinates, 0];
                 return;
             }
-            for (int i = 1; i < combustible.GetLength(0); i++)
+            for (int i = 1; i < mask.Length; i++)
             {
                 if (!mask[i])
                 {

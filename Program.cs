@@ -38,7 +38,28 @@ int[,] matrix = new int[,]{{0, 5, 1, 3},
 
 
 
-Test(new int[] { 0, 0 }, new int[] { 0,2 }, matrix, 9);
+static void Print(string[,] a)
+{
+    for (int i = 0; i < a.GetLength(0); i++)
+    {
+        for (int j = 0; j < a.GetLength(1); j++)
+        {
+            Console.Write(a[i, j]);
+        }
+        Console.WriteLine();
+    }
+}
+Print(EjerciciosDEInternet.EjerciciosDEInternet.MagnetPuzzle(new int[] { 2, -1, -1 }, new int[] { -1, -1, 2, -1 }, new int[] { -1, -1, 2 }, new int[] { 0, -1, -1, -1 },
+new string[,] {
+    {"T","T","T"},
+    {"B","B","B"},
+    {"T","L","R"},
+    {"B","L","R"}
+}));
+//Test(new int[] { 0, 0 }, new int[] { 0,2 }, matrix, 9);
+
+
+
 //Arbol de Prueba//////////////////////////////////////
 
 // BinaryTree<int> arbol =
