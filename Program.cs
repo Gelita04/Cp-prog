@@ -31,12 +31,16 @@ static void Test(int[] datos_trabajadores, int[] posicion_depositos, int[,] comb
     }
 }
 
-int[,] matrix = new int[,]{{0, 5, 1, 3},
-                           {5, 0, 3, 1},
-                           {1, 3, 0, 5},
-                           {3, 1, 5, 0}};
+int[,] matrix = new int[,]{{0 , 1,-1,-1,-1,-1,-1},
+                           {2 ,0 ,1 ,2 ,-1,-1,-1},
+                           {-1,2 ,0 ,3 ,2 , 4, 2},
+                           {-1,3 ,3 ,0 ,-1,-1,-1},
+                           {-1,-1,1 ,-1,0 ,6 ,-1},
+                           {-1,-1,3 ,-1,3 ,0 ,-1},
+                           {-1,-1,4 ,-1,-1,-1,0 }
+                           };
 
-
+Console.WriteLine(No_Simetrica.ViajanteMod.MenorComb(matrix));
 
 static void Print(string[,] a)
 {
@@ -49,13 +53,13 @@ static void Print(string[,] a)
         Console.WriteLine();
     }
 }
-Print(EjerciciosDEInternet.EjerciciosDEInternet.MagnetPuzzle(new int[] { 2, -1, -1 }, new int[] { -1, -1, 2, -1 }, new int[] { -1, -1, 2 }, new int[] { 0, -1, -1, -1 },
-new string[,] {
-    {"T","T","T"},
-    {"B","B","B"},
-    {"T","L","R"},
-    {"B","L","R"}
-}));
+// Print(EjerciciosDEInternet.EjerciciosDEInternet.MagnetPuzzle(new int[] { 2, -1, -1 }, new int[] { -1, -1, 2, -1 }, new int[] { -1, -1, 2 }, new int[] { 0, -1, -1, -1 },
+// new string[,] {
+//     {"T","T","T"},
+//     {"B","B","B"},
+//     {"T","L","R"},
+//     {"B","L","R"}
+// }));
 //Test(new int[] { 0, 0 }, new int[] { 0,2 }, matrix, 9);
 
 
