@@ -39,8 +39,15 @@ int[,] matrix = new int[,]{{0 , 1,-1,-1,-1,-1,-1},
                            {-1,-1,3 ,-1,3 ,0 ,-1},
                            {-1,-1,4 ,-1,-1,-1,0 }
                            };
+//Console.WriteLine(No_Simetrica.ViajanteMod.MenorComb(matrix));
+bool[,] matriz = new bool[,] { {false,true,false,false,false},
+                               {true,false,true,true,false},
+                               {false,true,false,false,false},
+                               {false,true,false,false,true},
+                               {false,false,false,true,false}};
 
-Console.WriteLine(No_Simetrica.ViajanteMod.MenorComb(matrix));
+
+Console.WriteLine(Mapeando.Mapeando_cosas.Cant_Min_Colores(matriz));
 
 static void Print(string[,] a)
 {

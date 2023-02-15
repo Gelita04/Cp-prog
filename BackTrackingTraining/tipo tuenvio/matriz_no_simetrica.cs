@@ -45,8 +45,6 @@ public static class ViajanteMod
            
             if (ciudades_enlazadas[coordenada_actual, i])
             {
-                if (i == 2 && coordenada_actual == 3)
-                { }
                 ciudades_enlazadas[coordenada_actual, i] = false;
                 ciudades_enlazadas[i, coordenada_actual] = false;
 
