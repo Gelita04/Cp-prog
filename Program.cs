@@ -47,7 +47,7 @@ bool[,] matriz = new bool[,] { {false,true,false,false,false},
                                {false,false,false,true,false}};
 
 
-Console.WriteLine(Mapeando.Mapeando_cosas.Cant_Min_Colores(matriz));
+Console.WriteLine(Mapeando.Mapeando_cosas.Cant_Min_Colores(matriz, 0));
 
 static void Print(string[,] a)
 {
