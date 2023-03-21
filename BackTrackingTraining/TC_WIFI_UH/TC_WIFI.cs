@@ -77,7 +77,44 @@ public static class WIFIUH
         }
         return result;
     }
+
+    // public static int NewMethod(bool[,] area, int[] alcances)
+    // {
+    //     int result = 0;
+    //     int[,] places = GetPlaces(area);
+    //     bool[] mask = new bool[places.GetLength(0)];
+    //     NewMethod(area, mask, 0, alcances, places, ref result, 0, 0);
+    //     return result;
+    // }
+    // private static void NewMethod(bool[,] area, bool[] mask, int id_ap_actual, int[] alcances, int[,] places, ref int result, int puestos, int alcance_total)
+    // {
+    //     if (puestos == places.GetLength(0))
+    //     {
+    //         if (alcance_total > result)
+    //         {
+    //             result = alcance_total;
+    //         }
+    //     }
+
+    //     for (int i = 0; i < places.GetLength(0); i++)
+    //     {
+    //         if (!mask[i])
+    //         {
+    //             mask[i] = true;
+    //             NewMethod(area, mask, id_ap_actual + 1, alcances, places, ref result, puestos + 1, alcance_total + GetAlcance(i, places, id_ap_actual));
+    //             mask[i] = false;
+    //         }
+    //     }
+
+    //     if (id_ap_actual < alcances.Length - 1)
+    //     {
+
+    //     }
+    // }
 }
+
+
+
 
 
 

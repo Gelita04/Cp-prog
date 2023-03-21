@@ -114,4 +114,15 @@ public static class NivelarTerreno
         }
         return true;
     }
+
+    public static int NewMethod(int[] parcerlas)
+    {
+        int result = int.MaxValue;
+        NewMethod(parcerlas, ref result);
+        return result;
+    }
+    private static void NewMethod(int[] parcelas, ref int result)
+    {
+
+    }
 }

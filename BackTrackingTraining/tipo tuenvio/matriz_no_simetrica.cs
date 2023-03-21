@@ -5,11 +5,15 @@ public static class ViajanteMod
     public static int MenorComb(int[,] combustible)
     {
         int result = int.MaxValue;
+        int[] track = new int[2 * combustible.GetLength(0)];
+        for (int i = 0; i < track.Length; i++)
+            track[i] = -1;
+
         bool[,] mask = GetCiudadesEnlazadas(combustible);
         Print(mask);
         for (int i = 0; i < combustible.GetLength(0); i++)
         {
-            MenorCombb(combustible, mask, ref result, 0, i);
+            MenorCombb(track, combustible, mask, ref result, 0, i, 0);
         }
 
         return result;
@@ -29,7 +33,7 @@ public static class ViajanteMod
             Console.WriteLine();
         }
     }
-    private static void MenorCombb(int[,] combustible, bool[,] ciudades_enlazadas, ref int result, int combustible_gastado, int coordenada_actual)
+    private static void MenorCombb(int[] track, int[,] combustible, bool[,] ciudades_enlazadas, ref int result, int combustible_gastado, int coordenada_actual, int visitadas)
     {
         if (combustible_gastado > result)
             return;
@@ -37,18 +41,22 @@ public static class ViajanteMod
         {
             if (combustible_gastado < result)
                 result = combustible_gastado;
+            if (result == 16)
+            { }
             return;
         }
 
         for (int i = 0; i < ciudades_enlazadas.GetLength(0); i++)
         {
-           
+
             if (ciudades_enlazadas[coordenada_actual, i])
             {
                 ciudades_enlazadas[coordenada_actual, i] = false;
                 ciudades_enlazadas[i, coordenada_actual] = false;
 
-                MenorCombb(combustible, ciudades_enlazadas, ref result, combustible_gastado + combustible[coordenada_actual, i], i);
+                track[visitadas] = i;
+                MenorCombb(track, combustible, ciudades_enlazadas, ref result, combustible_gastado + combustible[coordenada_actual, i], i, visitadas + 1);
+                track[visitadas] = -1;
 
                 ciudades_enlazadas[coordenada_actual, i] = true;
                 ciudades_enlazadas[i, coordenada_actual] = true;

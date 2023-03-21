@@ -31,23 +31,30 @@ static void Test(int[] datos_trabajadores, int[] posicion_depositos, int[,] comb
     }
 }
 
-int[,] matrix = new int[,]{{0 , 1,-1,-1,-1,-1,-1},
-                           {2 ,0 ,-1 ,2 ,-1,-1,-1},
-                           {-1,-1 ,0 ,3 ,2 , 4, 2},
-                           {-1,3 ,3 ,0 ,-1,-1,-1},
-                           {-1,-1,1 ,-1,0 ,6 ,-1},
-                           {-1,-1,3 ,-1,3 ,0 ,-1},
-                           {-1,-1,4 ,-1,-1,-1,0 }
-                           };
-//Console.WriteLine(No_Simetrica.ViajanteMod.MenorComb(matrix));
-bool[,] matriz = new bool[,] { {false,true,false,false,false},
-                               {true,false,true,true,false},
-                               {false,true,false,false,false},
-                               {false,true,false,false,true},
-                               {false,false,false,true,false}};
+// int[,] matrix = new int[,]{{ 0, 1,-1,-1,-1,-1,-1},
+//                            { 2, 0,-1, 2,-1,-1,-1},
+//                            {-1,-1, 0, 3, 2, 4, 2},
+//                            {-1, 3, 3, 0,-1,-1,-1},
+//                            {-1,-1, 1,-1, 0, 6,-1},
+//                            {-1,-1, 3,-1, 3, 0,-1},
+//                            {-1,-1, 4,-1,-1,-1, 0}
+//                            };
+// Console.WriteLine(No_Simetrica.ViajanteMod.MenorComb(matrix));
 
 
-Console.WriteLine(Mapeando.Mapeando_cosas.Cant_Min_Colores(matriz, 0));
+// bool[,] matriz = new bool[,] { {false,true,true,false,false},
+//                                {true,false,true,true,false},
+//                                {true,true,false,false,false},
+//                                {false,true,false,false,true},
+//                                {false,false,false,true,false}};
+
+// Console.WriteLine(grafos.Grafos.Mayor_Cant_Conectados(matriz));
+
+// int[] peso = { 10, 40, 20, 10, 2, 60, 130 };
+// int[] valor = { 60, 100, 10, 5, 1, 50, 2000 };
+// int[] peso_max_mochilas = { 20, 30, 200 };
+// Console.WriteLine(n_mochilas.N_Mochilas.Peso_Max_A_Llevar(peso, valor, peso_max_mochilas));
+// Console.WriteLine(Mapeando.Mapeando_cosas.Cant_Min_Colores(matriz, 0));
 
 static void Print(string[,] a)
 {
@@ -153,10 +160,10 @@ static void Print(string[,] a)
 //Muralla
 // int[] secciones1 = { 8, 1, 4, 9, 3 };
 // int constructores1 = 3;
-// int result = int.MaxValue;
-// MURALLA.MURALLA.MinTimeBuild(secciones1, constructores1, 0, 0, new int[constructores1], ref result);
-// Console.WriteLine(result);
-// Debug.Assert(result == 12);
+
+
+//  Console.WriteLine(MURALLA.MURALLA.TheWall(secciones1, constructores1));
+
 
 
 //////////////////////////////////////////////////
@@ -360,5 +367,7 @@ static void Print(string[,] a)
 //         );
 
 
+double[] a = { 1e100, 1e83, 1e83, 1e83, 1e83, 1e83, 1e83, 1e83, 1e83, 1e83, 1e83 };
 
+Console.WriteLine(a[0] + a[1]);
 
