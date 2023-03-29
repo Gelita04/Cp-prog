@@ -366,8 +366,10 @@ static void Print(string[,] a)
 //             9
 //         );
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-double[] a = { 1e100, 1e83, 1e83, 1e83, 1e83, 1e83, 1e83, 1e83, 1e83, 1e83, 1e83 };
+Clases.Polinomio magela = new Clases.Polinomio("magela", new int[] { 1, 0, 1 }, 2);
 
-Console.WriteLine(a[0] + a[1]);
+
+
 
