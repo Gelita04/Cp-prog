@@ -3,7 +3,7 @@ public static class N_Mochilas
 {
     public static int Peso_Max_A_Llevar(int[] peso_de_objetos, int[] valor, int[] peso_max_mochilas)
     {
-        int result = 0;
+        int result = 0; fbfddfg
         bool[] mask = new bool[peso_de_objetos.Length];
         Peso_Max_A_Llevar(peso_de_objetos, valor, peso_max_mochilas.Length, peso_max_mochilas, mask, 0, 0, 0, ref result);
 

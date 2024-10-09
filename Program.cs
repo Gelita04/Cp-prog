@@ -148,10 +148,10 @@ static void Print(string[,] a)
 
 
 //Katrib
-//Variacion.Katrib.Combinaciones(new int[2], new bool[4], 0, 0, new int[] { 1, 2, 3, 4 });
-// Variacion.Katrib.Combinaciones(new int[2], 0, 0, new int[] { 1, 3, 5, 6 });
-// Console.WriteLine();
-// Variacion.Katrib.VariacionesSinRepeticiones(new int[2], new bool[4], 0, new int[] { 1, 3, 5, 6 });
+Variacion.Katrib.Combinaciones(new int[2], new bool[4], 0, 0, new int[] { 1, 2, 3, 4 });
+ Variacion.Katrib.Combinaciones(new int[2], 0, 0, new int[] { 1, 3, 5, 6 });
+ Console.WriteLine();
+ Variacion.Katrib.VariacionesSinRepeticiones(new int[2], new bool[4], 0, new int[] { 1, 3, 5, 6 });
 
 
 /////////////////////////////////////////////////
